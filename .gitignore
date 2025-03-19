@@ -1,32 +1,37 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
+x64/
+Music/
+Debug/
+Release/
+.vs/
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
+*.log
+*.ilk
+*.pdb
+*.ob
+*.idb
+*.recipe
+*.tlog
+*.log
+*.DotSettings
+*.csproj
+*.pidb
+*.suo
+*.unityproj
+*.user
+*.userprefs
+*.o
+*.lo
 *.la
+*.al
+*.libs
+*.so
+*.so
 *.a
-*.lib
+*.pyc
+*.pyo
+pycache/
+*.rej
+*.swp
+*.DS_Store
 
-# Executables
-*.exe
-*.out
-*.app
+
