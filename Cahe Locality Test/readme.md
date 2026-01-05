@@ -15,7 +15,7 @@ CPU: ADM Ryzen 5 7500F 6-Core Processor
 GPU: NVIDIA GeForce RTX 4060 Ti   
    
 
-방법
+방법   
 \[2억\]\[2억\] 배열을 가로, 세로로 순회   
 각 시간을 비교   
 
