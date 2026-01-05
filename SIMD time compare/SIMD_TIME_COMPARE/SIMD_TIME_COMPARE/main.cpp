@@ -7,9 +7,8 @@
 #define COUNT 100'000'000
 
 /// 내적 연산 with 배열
-float* DotArray(int _count, const float* _a, const float* _b)
+void DotArray(int _count, const float* _a, const float* _b, float* result)
 {
-	float* result = new float[_count * 4];
 	for (int i = 0; i < _count; i++)
 	{
 		int j = i * 4;
@@ -20,14 +19,12 @@ float* DotArray(int _count, const float* _a, const float* _b)
 			+ _a[j + 3] * _b[j + 3];
 	}
 
-	return result;
+	return;
 }
 
 /// 내적 연산 with SIMD but slow
-float* DotSSEHorizontal(int _count, const float* _a, const float* _b)
+void DotSSEHorizontal(int _count, const float* _a, const float* _b, float* result)
 {
-	float* result = new float[_count * 4];
-
 	for (int i = 0; i < _count; i++)
 	{
 		int j = i * 4;
@@ -44,14 +41,12 @@ float* DotSSEHorizontal(int _count, const float* _a, const float* _b)
 		_mm_store_ss(&result[i], vecResult);
 	}
 
-	return result;
+	return;
 }
 
 /// 내적 연산 with SIMD
-float* DotSSE(int _count, const float* _a, const float* _b)
+void DotSSE(int _count, const float* _a, const float* _b, float* result)
 {
-	float* result = new float[_count * 4];
-
 	for (int i = 0; i < _count; i += 4)
 	{
 		__m128 vaX = _mm_load_ps(&_a[(i + 0) * 4]);
@@ -78,7 +73,7 @@ float* DotSSE(int _count, const float* _a, const float* _b)
 		_mm_store_ps(&result[i], vecResult);
 	}
 
-	return result;
+	return;
 }
 
 
@@ -90,7 +85,7 @@ int main()
 	std::cout << "set data" << std::endl;
 	float* dataA = new float[COUNT * 4];
 	float* dataB = new float[COUNT * 4];
-	float* result = nullptr;
+	float* result = new float[COUNT * 4];
 
 	for (int i = 0; i < COUNT * 4; i++)
 	{
@@ -103,29 +98,27 @@ int main()
 	tc.Start();
 	for (int i = 0; i < 10; i++)
 	{
-		result = DotArray(COUNT, dataA, dataB);
+		DotArray(COUNT, dataA, dataB, result);
 	}
 	tc.Get();
-	delete[] result;
 
 	std::cout << "Get Time SSE Slow" << std::endl;
 	tc.Start();
 	for (int i = 0; i < 10; i++)
 	{
-		result = DotSSEHorizontal(COUNT, dataA, dataB);
+		DotSSEHorizontal(COUNT, dataA, dataB, result);
 	}
 	tc.Get();
-	delete[] result;
 
 	std::cout << "Get Time SSE" << std::endl;
 	tc.Start();
 	for (int i = 0; i < 10; i++)
 	{
-		result = DotSSE(COUNT, dataA, dataB);
+		DotSSE(COUNT, dataA, dataB, result);
 	}
 	tc.Get();
-	delete[] result;
 
 	delete[] dataA;
 	delete[] dataB;
+	delete[] result;
 }
