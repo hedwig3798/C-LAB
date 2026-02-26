@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{34d0a7d7-a841-4163-917b-46e76da9954c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RandomTest">
+      <UniqueIdentifier>{b5e2303f-a013-4f27-9f36-940fbf3166b4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RandomTester.cpp">
+      <Filter>RandomTest</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RandomTester.h">
+      <Filter>RandomTest</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
