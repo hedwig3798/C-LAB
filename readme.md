@@ -1,8 +1,8 @@
-C/C++ 실험실
+실험실
 =============
 
-## C/C++ 언어에 대한 실험실입니다. 
-C/C++ 언어에서의 성능, 정의되지 않은 행동의 결과 등을 테스트합니다.
+## 각종 이론에 대한 실험실입니다. 
+C/C++ 언어 실험, 수학적인 실험 등등 이론적으로 배운 내용을 구현해보고 테스트해 보는 실험실 입니다.
    
 ### 1. [SIMD 연산 효율](https://github.com/hedwig3798/C-LAB/tree/main/SIMD%20time%20compare)
 CPU의 SIMD(Single Instruction Multiple Data) 지시어를 활용한 연산 최적화 및 성능 향상 폭을 측정합니다.   
