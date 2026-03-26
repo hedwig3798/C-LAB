@@ -28,4 +28,8 @@ TestResult RandomTest(TestInput _input);
 
 double GetCriticalValue(unsigned long long _diff);
 
-
+std::vector<unsigned long long> TestThread(
+	std::function<double()> _randomFunction
+	, unsigned long long _count
+	, unsigned long long _accuracy
+);
