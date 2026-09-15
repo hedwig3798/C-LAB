@@ -18,3 +18,6 @@ CPU의 SIMD(Single Instruction Multiple Data) 지시어를 활용한 연산 최�
 
 ### 5. [충돌 최적화](https://github.com/hedwig3798/C-LAB/tree/main/CollisionTest)
 2차원 환경에서 알고리즘에 따른 충돌 함수의 실행 시간을 비교합니다.
+
+### 6. [빠른 삭제 벡터](https://github.com/hedwig3798/C-LAB/tree/main/FastEraseVector)
+빠른 삭제를 지원하는 벡터와 일반 벡터의 삭제 연산 속도를 비교합니다.

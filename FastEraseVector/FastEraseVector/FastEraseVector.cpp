@@ -15,17 +15,19 @@
 
 int main()
 {
+	// 테스트 조건
 	const size_t NUM_ELEMENTS = 100000;
 	const size_t ERASE_COUNT = 50000;
 
+	// 각 벡터
 	std::vector<size_t> vec;
 	SwapPopVector<size_t> swapVec;
 	SlotVector<size_t> slotVect;
 
+	// 할당
 	vec.reserve(NUM_ELEMENTS);
 	swapVec.reserve(NUM_ELEMENTS);
 	slotVect.reserve(NUM_ELEMENTS);
-
 	for (size_t i = 0; i < NUM_ELEMENTS; ++i) 
 	{
 		vec.push_back(i);
@@ -33,6 +35,7 @@ int main()
 		slotVect.push_back(i);
 	}
 
+	// 랜덤 난수 생성
 	std::vector<size_t> eraseIndex;
 	eraseIndex.reserve(ERASE_COUNT);
 	std::random_device rd;
@@ -52,6 +55,7 @@ int main()
 	std::cout << "데이터 총 갯수: " << NUM_ELEMENTS << "\n";
 	std::cout << "삭제할 갯수: " << ERASE_COUNT << "\n\n";
 
+	// 테스트
 	auto start = std::chrono::high_resolution_clock::now();
 	for (size_t i = 0; i < ERASE_COUNT; ++i)
 	{
@@ -81,6 +85,7 @@ int main()
 	std::cout << "스왑-팝 벡터 삭제 시간: " << swapEraseTime.count() << " ms\n";
 	std::cout << "슬롯 벡터 삭제 시간   : " << slotEraseTime.count() << " ms\n\n";
 
+	// 삭제 후 순회
 	volatile long long dummy_sum = 0;
 
 	start = std::chrono::high_resolution_clock::now();
