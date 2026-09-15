@@ -7,7 +7,7 @@
 #define COUNT 100'000'000
 
 /// 내적 연산 with 배열
-void DotArray(int _count, const float* _a, const float* _b, float* result)
+__declspec(noinline) void DotArray(int _count, const float* _a, const float* _b, float* result)
 {
 	for (int i = 0; i < _count; i++)
 	{
@@ -17,13 +17,15 @@ void DotArray(int _count, const float* _a, const float* _b, float* result)
 			+ _a[j + 1] * _b[j + 1]
 			+ _a[j + 2] * _b[j + 2]
 			+ _a[j + 3] * _b[j + 3];
+
+		// printf("최종 결과 확인: %f\n", result[0]);
 	}
 
 	return;
 }
 
 /// 내적 연산 with SIMD but slow
-void DotSSEHorizontal(int _count, const float* _a, const float* _b, float* result)
+__declspec(noinline) void DotSSEHorizontal(int _count, const float* _a, const float* _b, float* result)
 {
 	for (int i = 0; i < _count; i++)
 	{
@@ -39,13 +41,15 @@ void DotSSEHorizontal(int _count, const float* _a, const float* _b, float* resul
 		__m128 vecResult = _mm_hadd_ps(vec1, vec1);
 
 		_mm_store_ss(&result[i], vecResult);
+		// printf("최종 결과 확인: %f\n", result[0]);
+
 	}
 
 	return;
 }
 
 /// 내적 연산 with SIMD
-void DotSSE(int _count, const float* _a, const float* _b, float* result)
+__declspec(noinline) void DotSSE(int _count, const float* _a, const float* _b, float* result)
 {
 	for (int i = 0; i < _count; i += 4)
 	{
@@ -71,6 +75,8 @@ void DotSSE(int _count, const float* _a, const float* _b, float* result)
 		vecResult = _mm_add_ps(vecResult, _mm_mul_ps(vaW, vbW));
 
 		_mm_store_ps(&result[i], vecResult);
+		printf("최종 결과 확인: %f\n", result[0]);
+
 	}
 
 	return;

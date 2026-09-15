@@ -6,7 +6,7 @@
 #define MAX_COUNT 100'000'000
 std::vector<int> datas;
 
-void IfLoopSorted()
+__declspec(noinline) void IfLoopSorted()
 {
 	std::cout << "Loop Sorted Vector\n";
 	long long sum = 0;
@@ -27,7 +27,7 @@ void IfLoopSorted()
 	return;
 }
 
-void IfLoop()
+__declspec(noinline) void IfLoop()
 {
 	long long sum = 0;
 	std::cout << "Loop with Branch\n";
@@ -47,7 +47,7 @@ void IfLoop()
 	return;
 }
 
-void BranchlessLoop()
+__declspec(noinline) void BranchlessLoop()
 {
 	long long sum = 0;
 	std::cout << "Loop with Branchless\n";
